@@ -8,7 +8,7 @@ def listar_mensajes(request):
     return render(request, "BlogAndrada/chat_global.html", {"mensajes": mensajes})
 from django.contrib.auth.decorators import login_required
 from .models import MensajeChat
-from .forms import MensajeForm  # Asegúrate de importar el formulario MensajeForm adecuadamente
+from .forms import MensajeForm  
 
 @login_required
 def Crear_mensaje(request):
@@ -38,7 +38,7 @@ def editarmensaje(request, id):
                 form = MensajeForm()  
                 return render(request, 'BlogAndrada/inicio.html', {'form': form, 'mensaje': mensaje, "mensaje": "Mensaje editado"})
         else:
-            form = MensajeForm(initial={"contenido": mensaje.contenido})  # Rellena el formulario con el contenido actual del mensaje
+            form = MensajeForm(initial={"contenido": mensaje.contenido})  
         return render(request, 'BlogAndrada/editar_mensaje.html', {'mensaje': mensaje, "form": form})
     else:
         return render(request, "BlogAndrada/chat_golbal.html", {"mensaje": mensaje, "mensaje": "No tienes permitido editar este mensaje"})
