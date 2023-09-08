@@ -52,7 +52,7 @@ def editarBlog(request, id):
                 blog.save()
                 form = BlogForm()
                 blogs=Blog.objects.all()
-                return render(request, 'BlogAndrada/listar_blogs.html', {'form': form, 'blogs': blogs, "mensaje": "Blog editado con exito"})
+                return render(request, 'BlogAndrada/inicio.html', {'form': form, 'blogs': blogs, "mensaje": "Blog editado con exito"})
         else:
             form = BlogForm(initial={"titulo": blog.titulo, "subtitulo": blog.subtitulo, "cuerpo": blog.cuerpo, "imagen": blog.imagen})
         return render(request, 'BlogAndrada/editar_blog.html', {'blog': blog, "form": form})
@@ -67,6 +67,6 @@ def eliminar_blog(request, blog_id):
             blog.delete()
             # Redirige o renderiza según tu preferencia
             blogs = Blog.objects.all()
-            return render(request, "BlogAndrada/listar_blogs.html", {"blogs": blogs, "mensaje": "Blog eliminado con éxito"})
+            return render(request, "BlogAndrada/inicio.html", {"blogs": blogs, "mensaje": "Blog eliminado con éxito"})
         else:
             return render(request, "BlogAndrada/eliminar_blog.html", {"blog": blog})
