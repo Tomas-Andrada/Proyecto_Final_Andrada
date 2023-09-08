@@ -1,0 +1,11 @@
+{% extends 'padre.html' %}
+{% block bienvenida %} Editar Blog {% endblock %}
+{% block contenido %}
+    <h2>Editar Blog</h2>
+    <p>{{ mensaje }}</p>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar Cambios</button>
+    </form>
+{% endblock %}

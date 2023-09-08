@@ -1,0 +1,14 @@
+{% extends 'padre.html' %}
+{% block bienvenida %} Editar Mensaje {% endblock %}
+{% block contenido %}
+    <h2>Editar Mensaje</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar Cambios</button>
+    </form>
+    {% if mensajeedit %}
+        <p>{{ mensajeedit }}</p>
+    {% endif %}
+</div>
+{% endblock %}

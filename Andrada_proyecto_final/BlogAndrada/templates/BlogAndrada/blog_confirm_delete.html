@@ -1,0 +1,16 @@
+{% extends 'padre.html' %}
+{% block bienvenida %} Eliminar Blog {% endblock %}
+{% block contenido %}
+    <h2>Detalles del Blog</h2>
+    {% if mensaje %}
+        <p>{{ mensaje }}</p>
+    {% else %}
+       
+        <h3>{{ blog.titulo }}</h3>
+        <p>{{ blog.subtitulo }}</p>
+        <p>{{ blog.cuerpo }}</p>
+        <p>Autor: {{ blog.autor }}</p>
+        <p>Fecha de Publicación: {{ blog.fecha }}</p>
+        
+    {% endif %}
+{% endblock %}

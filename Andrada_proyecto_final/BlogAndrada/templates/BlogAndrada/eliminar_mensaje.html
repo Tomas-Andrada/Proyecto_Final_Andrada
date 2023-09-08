@@ -1,0 +1,15 @@
+{% extends 'padre.html' %}
+{% block bienvenida %} Eliminar Mensaje {% endblock %}
+{% block contenido %}
+    <h2>Eliminar Mensaje</h2>
+    <p>¿Estás seguro de que deseas eliminar este mensaje?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Eliminar</button>
+    </form>
+    {% if mensaje %}
+        <p>{{ mensaje }}</p>
+    {% endif %}
+    <a href="{% url 'listar_mensajes' %}">Volver a la lista de mensajes</a>
+</div>
+{% endblock %}

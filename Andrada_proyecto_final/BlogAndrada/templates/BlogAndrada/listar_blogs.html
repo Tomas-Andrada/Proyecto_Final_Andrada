@@ -1,0 +1,20 @@
+{% extends 'padre.html' %}
+{% block bienvenida %} Lista de Blogs {% endblock %}
+{% block contenido %}
+    <h2>Bienvenido a mi blog</h2>
+    <h4>{{mensaje}}</h4>
+    {% for blog in blogs %}
+    <table>
+        <tr>
+        <h4>{{ blog.titulo }}</h4>
+        <p>Autor:{{ blog.autor }}</p>
+    </tr>
+    <tr>
+        <a href="{% url 'detalle_blog' blog.id %}" >leer mas</a>
+    </tr>
+</table>
+        
+    {% empty %}
+        <p>No hay blogs disponibles.</p>
+    {% endfor %}
+{% endblock %}

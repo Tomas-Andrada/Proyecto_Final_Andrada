@@ -1,0 +1,12 @@
+{% extends 'padre.html' %}
+{% block bienvenida %} Inicio Sesion{% endblock %}
+{% block contenido %}
+    <h3>{{ mensaje }}</h3>
+    <h2>Iniciar Sesión</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+    <p>¿No tienes una cuenta? <a href="{% url 'registro' %}">Regístrate aquí</a></p>
+{% endblock %}

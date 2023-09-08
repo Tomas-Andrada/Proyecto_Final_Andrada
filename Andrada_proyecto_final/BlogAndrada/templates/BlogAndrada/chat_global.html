@@ -1,0 +1,19 @@
+{% extends 'padre.html' %}
+{% block bienvenida %} Chat Global {% endblock %}
+{% block contenido %}
+    <a href="{% url 'crear_mensaje'%}" class="btn btn-primary">Enviar mensaje</a>
+    <h2>Mensajes en el Chat Global</h2>
+    <ul>
+        {% for mensaje in mensajes %}
+            <li>De: {{ mensaje.remitente.username }}</li>
+            <p>{{ mensaje.contenido }}</p>
+            <p>Fecha de Envío: {{ mensaje.fecha_envio }}</p>
+            {% if mensaje.remitente == request.user %}
+                <a href="{% url 'editar_mensaje' mensaje.id %}" class="btn btn-success">Editar</a>
+                <a href="{% url 'eliminar_mensaje' mensaje.id %}" class="btn btn-danger">Eliminar</a>
+            {% endif %}
+        {% empty %}
+            <li>No hay mensajes disponibles.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

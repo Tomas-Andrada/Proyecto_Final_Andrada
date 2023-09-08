@@ -1,0 +1,12 @@
+{% extends 'padre.html' %}
+{% block bienvenida %} Editar Perfil {% endblock %}
+{% block contenido %}
+    <h2>Editar Perfil</h2>
+        <p>{{ mensaje }}</p>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Guardar Cambios</button>
+        </form>
+    <a class="btn btn-success" href="{% url 'agregarAvatar' %}">agregar Avatar</a>
+{% endblock %}

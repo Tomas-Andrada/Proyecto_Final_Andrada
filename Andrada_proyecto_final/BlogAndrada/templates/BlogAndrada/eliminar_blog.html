@@ -1,0 +1,15 @@
+{% extends 'padre.html' %}
+{% block bienvenida %} Eliminar Blog {% endblock %}
+{% block contenido %}
+    <h2>Eliminar Blog</h2>
+    {% if mensaje %}
+        <p>{{ mensaje }}</p>
+    {% else %}
+        <!-- Confirmación de eliminación del blog aquí (solo visible para administradores autenticados) -->
+        <p>¿Estás seguro de que deseas eliminar el blog "{{ blog.titulo }}"?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Eliminar Blog</button>
+        </form>
+    {% endif %}
+{% endblock %}

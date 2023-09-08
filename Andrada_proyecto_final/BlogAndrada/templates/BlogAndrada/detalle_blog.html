@@ -1,0 +1,18 @@
+{% extends 'padre.html' %}
+{% block bienvenida %} Blog {% endblock %}
+{% block contenido %}
+    <h2>{{ blog.titulo }}</h2>
+    <h2>{{ blog.subtitulo }}</h2>
+    
+    <p>Autor: {{ blog.autor }}</p>
+    <p>Fecha de publicación: {{ blog.fecha }}</p>
+    <p>{{ blog.imagen.url }}</p>
+    <img src="{{ blog.imagen.url }}" alt="Imagen">
+    <div>{{ blog.cuerpo }}</div>
+    
+    <a href="{% url 'listar_blogs' %}">Volver a la lista de blogs</a>
+    {% if blog.autor == request.user %}
+    <a class="btn btn-danger" href="{% url 'eliminar_blog' blog.id  %}">Eliminar</a>
+    <a class="btn btn-success" href="{% url 'editar_blog' blog.id  %}">Editar</a>
+    {% endif %}
+{% endblock %}

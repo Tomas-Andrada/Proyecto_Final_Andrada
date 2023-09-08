@@ -1,0 +1,7 @@
+{% extends 'padre.html' %}
+{% block bienvenida %} Inicio {% endblock %}
+{% block contenido %}   
+    <h2>Bienvenido a mi blog</h2>
+    <a href="{% url 'listar_blogs' %}" >Listar Blogs</a>
+    <p>{{mensaje}}</p>
+{% endblock %}
