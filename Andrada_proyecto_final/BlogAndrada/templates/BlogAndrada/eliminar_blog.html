@@ -5,7 +5,6 @@
     {% if mensaje %}
         <p>{{ mensaje }}</p>
     {% else %}
-        <!-- Confirmación de eliminación del blog aquí (solo visible para administradores autenticados) -->
         <p>¿Estás seguro de que deseas eliminar el blog "{{ blog.titulo }}"?</p>
         <form method="post">
             {% csrf_token %}
